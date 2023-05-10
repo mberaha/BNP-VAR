@@ -1,0 +1,27 @@
+syntax="proto3";
+
+message EigenMatrix {
+    uint32 rows = 1;
+    uint32 cols = 2;
+    repeated double data = 3;
+}
+
+message EigenVector {
+    uint32 size = 1;
+    repeated double data = 2;
+}
+
+message State {
+    EigenMatrix beta = 1;
+    EigenMatrix gamma = 2;
+    repeated EigenMatrix phis = 3;
+    EigenMatrix sigma = 4;
+    repeated int32 clus_allocs = 5;
+    repeated EigenVector alphas = 6;
+    // EigenVector phi_0 = 7;
+    // EigenMatrix v_0 = 8;
+    string model = 9;
+    EigenVector dp_weights = 10;
+
+    repeated EigenVector lindpp_regressors = 11;
+}
